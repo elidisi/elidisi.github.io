@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8ede3; /* Nude background */
+        }
+
+        .container {
+            text-align: center;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #a1745c; /* Soft nude tone for the text */
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #yesButton {
+            background-color: #f8c8dc; /* Light pink */
+            color: #a74b6b;
+        }
+
+        #yesButton:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #no {
+            background-color: #f0d8c3; /* Light nude */
+            color: #a1745c;
+            position: absolute;
+        }
+
+        #no:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #hiddenMessage {
+            display: none;
+            font-size: 1.5rem;
+            color: #a1745c;
+            margin-top: 20px;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #f8c8dc;
+            }
+            to {
+                text-shadow: 0 0 20px #f8c8dc, 0 0 30px #f8c8dc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, Bebi Giwu! 🎉 <br>
+            Ready for your gift?</h1>
+        <button id="yesButton">Yes 🎁</button>
+        <button id="no">No 😢</button>
+        <div id="hiddenMessage">Surprise! 🎊 <br>
+            Your gift is my love, warm hugs, endless kisses, and a promise to make every day as special as today. 💖</div>
+    </div>
+
+    <script>
+        document.getElementById("yesButton").addEventListener("click", function () {
+            const message = document.getElementById("hiddenMessage");
+            message.style.display = "block";
+        });
+
+        const noButton = document.getElementById("no");
+        noButton.addEventListener("click", moveButton);
+
+        function moveButton() {
+            const i = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth)) + 1;
+            const j = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight)) + 1;
+            noButton.style.left = i + "px";
+            noButton.style.top = j + "px";
+        }
+    </script>
+</body>
+</html>
